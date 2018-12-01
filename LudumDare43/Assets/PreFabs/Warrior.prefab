@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4683898538777004}
   - component: {fileID: 114583584282088082}
+  - component: {fileID: 114995183540524288}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Untagged
@@ -51,6 +52,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881f17b21fa54c547b8df9d505e774ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  damage: 0
-  moveSpeed: 1
+  health: 10
+  damage: 3
+  moveSpeed: 2
+  attackFrequency: 3
+  attackDistance: 1
+--- !u!114 &114995183540524288
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1745507558699502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd54207cab835d47b5677f29e4aa76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

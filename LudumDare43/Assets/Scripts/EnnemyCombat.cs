@@ -36,13 +36,14 @@ public class EnnemyCombat : MonoBehaviour {
         
 	}
 
-    protected void InflictDamage(int number)
+    public void InflictDamage(int number)
     {
-        GameObject.Find("Player").GetComponent<PlayerCombat>().TakeDamage(number);
+        GameObject.Find("Player").GetComponentInChildren<PlayerCombat>().TakeDamage(number);
     }
 
     public void TakeDamage(int number)
     {
+        
         int health = gameObject.GetComponent<CharacterData>().GetHealth();
 
         health = health - number;
@@ -60,6 +61,9 @@ public class EnnemyCombat : MonoBehaviour {
         
     }
 
-    private void Die() { }
+    private void Die()
+    {
+        Destroy(gameObject);
+    }
 
 }

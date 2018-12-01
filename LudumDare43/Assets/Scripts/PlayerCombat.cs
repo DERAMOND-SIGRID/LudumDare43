@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class PlayerCombat : MonoBehaviour {
-
+    
     private List<GameObject> ennemyList;
 
     abstract protected void LeftClickAction();
@@ -13,23 +13,21 @@ public abstract class PlayerCombat : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        ennemyList = new List<GameObject>();
+
+        ennemyList = new List<GameObject>();       
+
     }
-
-    // Update is called once per frame
-    void Update () {
-
+       
+    protected void CheckMouseInput () {
+        
         if (Input.GetMouseButtonDown(0))
-        {
+        {            
             LeftClickAction();
         }
-            
         else if (Input.GetMouseButtonDown(1))
-        {
+        {           
             RightClickAction();
         }
-
-    
 
 	}
     protected void InflictDamage(int number)

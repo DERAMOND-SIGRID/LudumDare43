@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4271410027899344}
   - component: {fileID: 114659498019647334}
   - component: {fileID: 114155832158185814}
+  - component: {fileID: 114613953997541888}
   m_Layer: 0
   m_Name: Ennemy1
   m_TagString: Untagged
@@ -52,6 +53,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2892ab93866c894b9c034abd08e332c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114613953997541888
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1185203633322122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25691b67ef42f3846b1cf188b560cc49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114659498019647334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -63,6 +75,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881f17b21fa54c547b8df9d505e774ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  damage: 0
-  moveSpeed: 1
+  health: 10
+  damage: 3
+  moveSpeed: 3
+  attackFrequency: 4
+  attackDistance: 1
