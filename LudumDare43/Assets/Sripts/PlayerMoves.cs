@@ -15,5 +15,19 @@ public class PlayerMoves : MonoBehaviour {
         if (Input.GetKey("z"))
         { gameObject.GetComponent<Transform>().Translate(Vector3.up);
         }
-	}
+
+        if (Input.GetKey("s"))
+        { gameObject.GetComponent<Transform>().Translate(Vector3.down);
+        }
+
+        if (Input.GetKey("q"))
+        { gameObject.GetComponent<Transform>().Translate(Vector3.left);
+        }
+
+        if (Input.GetKey("d"))
+        { gameObject.GetComponent<Transform>().Translate(Vector3.right);
+        }
+    }
 }
+
+
