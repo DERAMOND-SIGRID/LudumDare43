@@ -12,6 +12,10 @@ public class CharacterData : MonoBehaviour {
 
     [SerializeField]
     private float moveSpeed;
- 
+
+    public float GetMoveSpeed()
+    {
+        return moveSpeed;
+    }
 
 }
