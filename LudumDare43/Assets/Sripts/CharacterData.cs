@@ -17,5 +17,6 @@ public class CharacterData : MonoBehaviour {
     {
         return moveSpeed;
     }
-
+    [SerializeField]
+    private float attackFrequency; 
 }
