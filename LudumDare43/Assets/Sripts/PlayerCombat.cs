@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class PlayerCombat : MonoBehaviour {
 
-    private List<GameObject>[] ennemyList;
+    private List<GameObject> ennemyList;
 
     abstract protected void LeftClickAction();
 
@@ -13,6 +13,7 @@ public abstract class PlayerCombat : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        ennemyList = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -33,10 +34,10 @@ public abstract class PlayerCombat : MonoBehaviour {
 	}
     protected void InflictDamage(int number)
     {
-        for(int i = 0; i < ennemyList.Length; i ++)
+        for(int i = 0; i < ennemyList.Count; i ++)
         {
            int damage = gameObject.GetComponent<CharacterData>().GetDamage();
-            ennemyList.get(i).GetComponent<EnnemyCombat>().TakeDamage(damage);
+            ennemyList[i].GetComponent<EnnemyCombat>().TakeDamage(damage);
         }
 
     }
