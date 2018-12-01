@@ -7,8 +7,16 @@ public class CharacterData : MonoBehaviour {
     [SerializeField]
     private int health;
 
+    public int GetHealth() { return health; }
+    public void SetHealth(int number)
+    {
+        health = number;
+    }
+
     [SerializeField]
     private int damage;
+
+    public int GetDamage() { return damage; }
 
     [SerializeField]
     private float moveSpeed;
@@ -17,6 +25,20 @@ public class CharacterData : MonoBehaviour {
     {
         return moveSpeed;
     }
+
     [SerializeField]
-    private float attackFrequency; 
+    private float attackFrequency;
+
+    public float GetAttackFrequency()
+    {
+        return attackFrequency;
+    }
+
+    [SerializeField]
+    private int attackDistance;
+
+    public int GetAttackDistance()
+    {
+        return attackDistance;
+    }
 }
