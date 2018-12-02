@@ -20,6 +20,31 @@ public class EnnemyMoves : MonoBehaviour {
 
         playerPosition = GameObject.Find("Player").GetComponent<Transform>().position;
 
-        gameObject.GetComponent<Transform>().position = Vector3.MoveTowards(gameObject.GetComponent<Transform>().position, playerPosition, moveSpeed);
-	}
+        float distanceX = Mathf.Abs(gameObject.GetComponent<Transform>().position.x - playerPosition.x);
+        float distanceY = Mathf.Abs(gameObject.GetComponent<Transform>().position.y - playerPosition.y);
+        float distanceAttack = gameObject.GetComponentInChildren<CharacterData>().GetAttackDistance();
+
+        float x;
+        float y;
+
+        if (distanceX != 0)
+        {
+            x = (distanceAttack / distanceX) * (gameObject.GetComponent<Transform>().position.x - playerPosition.x) + playerPosition.x;
+        }
+        else
+        {
+            x = 0;
+        }
+
+        if(distanceY != 0)
+        {
+            y = (distanceAttack / distanceY) * (gameObject.GetComponent<Transform>().position.y - playerPosition.y) + playerPosition.y;
+        }
+        else
+        {
+            y = 0;
+        }
+               
+        gameObject.GetComponent<Transform>().position = Vector3.MoveTowards(gameObject.GetComponent<Transform>().position, new Vector3(x,y,0), moveSpeed);
+    }
 }
