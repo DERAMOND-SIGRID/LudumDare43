@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4812170345186168}
   - component: {fileID: 212943876888573640}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RenderEngineer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4459704101701078}
   - component: {fileID: 114504646536781734}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Engineer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,8 +118,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1022625915
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1c625689985dce6458a0763fd3a4aa19, type: 3}
   m_Color: {r: 1, g: 0, b: 1, a: 1}
