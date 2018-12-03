@@ -300,9 +300,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2555ae1674b639549ab8caaa887fbde5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuSelection: {fileID: 1808877724769596, guid: 2fe862ec4e5985c4c98dcbbf7946fe4f,
+    type: 2}
   level1: {fileID: 1052470783498080, guid: 5697d9d1eb8bc644a94c8ab4ba2e8143, type: 2}
   player: {fileID: 1057171901709806, guid: 27e536e8e8197924fac475730c33a22e, type: 2}
   warrior: {fileID: 1745507558699502, guid: 9b8d3e5bc48da1843ae8d75e656d56da, type: 2}
+  archer: {fileID: 1425380174538982, guid: cd154a21e1015db47aa7f340443a57a3, type: 2}
+  picklock: {fileID: 1560455575466198, guid: d33458ec3d1752248b866e7785e4373e, type: 2}
 --- !u!114 &116815665
 MonoBehaviour:
   m_ObjectHideFlags: 0
