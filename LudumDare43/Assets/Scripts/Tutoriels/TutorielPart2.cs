@@ -38,7 +38,7 @@ public class TutorielPart2 : MonoBehaviour {
 
         timer = timer + Time.deltaTime;
 
-        if (timer >= 2)
+        if (timer >= 3)
         {
             GameObject.Find("OpeningDoorStart").GetComponent<Door>().OpenNormalDoor();
 

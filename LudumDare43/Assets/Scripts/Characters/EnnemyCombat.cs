@@ -8,14 +8,27 @@ public class EnnemyCombat : MonoBehaviour {
     private float attackTimer;
     private int damage;
 
-	// Use this for initialization
-	void Start () {
+    [SerializeField]
+    private List<GameObject> characterCantAttack;
+
+    private bool canAttackCharacter;
+
+    private bool canAttack;
+    public void SetCanAttack(bool canHe) { canAttack = canHe; }
+
+    private GameObject character;
+    public void SetCharacter(GameObject current) { character = current; }
+
+    // Use this for initialization
+    void Start () {
 
         attackTimer = 0;
 
         damage = gameObject.GetComponent<CharacterData>().GetDamage();
 
-	}
+        canAttackCharacter = true;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -26,11 +39,20 @@ public class EnnemyCombat : MonoBehaviour {
 
         if (Mathf.Abs(playerPosition.x - gameObject.GetComponent<Transform>().position.x) <= gameObject.GetComponent<CharacterData>().GetAttackDistance())
         {
-           
-            if (attackTimer >= gameObject.GetComponent<CharacterData>().GetAttackFrequency())
+
+            foreach (GameObject go in characterCantAttack)
+            {                
+                if (go.name == character.name)
+                {
+                    canAttackCharacter = false;
+                }
+            }
+
+            if (attackTimer >= gameObject.GetComponent<CharacterData>().GetAttackFrequency()
+                && character != null && canAttack == true && canAttackCharacter == true)
             {
                 attackTimer = 0;
-                InflictDamage(damage);
+                //InflictDamage(damage);
             }
         }
         
@@ -61,8 +83,8 @@ public class EnnemyCombat : MonoBehaviour {
         
     }
 
-    private void Die()
-    {
+    public void Die()
+    {        
         Destroy(gameObject);
     }
 

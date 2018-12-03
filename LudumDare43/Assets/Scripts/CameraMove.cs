@@ -10,7 +10,8 @@ public class CameraMove : MonoBehaviour {
     [SerializeField]
     private Vector2 toPosition;
 
-    private float moveSpeed;
+    [SerializeField]
+    GameObject otherSide;
 
     // Use this for initialization
     void Start () {
@@ -22,9 +23,14 @@ public class CameraMove : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        Camera.main.GetComponent<Transform>().Translate(Vector3.MoveTowards(Camera.main.GetComponent<Transform>().position, new Vector3(toPosition.x, toPosition.y, Camera.main.GetComponent<Transform>().position.z), moveSpeed));
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {       
+        Camera.main.GetComponent<Transform>().position = new Vector3(toPosition.x, toPosition.y, Camera.main.GetComponent<Transform>().position.z);
+
+        otherSide.GetComponent<CameraMove>().enabled = true;
+        this.enabled = false;
     }
 
 }

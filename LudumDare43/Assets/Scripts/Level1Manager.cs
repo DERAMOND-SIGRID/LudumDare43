@@ -15,8 +15,19 @@ public class Level1Manager : MonoBehaviour {
     [SerializeField]
     private GameObject arrow;
 
+    private TutorielPart3 tutoPart3;
+
+    [SerializeField]
+    private GameObject ennemy1;
+    private GameObject instanceEnnemyNum1;
+
+    [SerializeField]
+    private GameObject trigger;
+
     // Use this for initialization
     void Start () {
+
+        instanceEnnemyNum1 = Instantiate(ennemy1, new Vector3(20, 0, 0), Quaternion.identity, GameObject.Find("EnnemyList").GetComponent<Transform>());
 
         GameObject player = GameObject.Find("Player");
         player.GetComponent<PlayerMoves>().enabled = false;
@@ -29,7 +40,10 @@ public class Level1Manager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (tutoPart3 != null)
+        {
+            tutoPart3.SetCanContinue(trigger.GetComponent<CheckLaunchingTutoPart3>().GetIsTrigger());
+        }
 	}
 
     private void LaunchTutoPart1()
@@ -45,7 +59,14 @@ public class Level1Manager : MonoBehaviour {
 
     public void LaunchTutoPart3()
     {
-        TutorielPart3 tutoPart3 = gameObject.AddComponent<TutorielPart3>();        
+        tutoPart3 = gameObject.AddComponent<TutorielPart3>();
+        tutoPart3.SetArrowSprite(arrow);
+        tutoPart3.SetEnnemyNum1(instanceEnnemyNum1);
+    }
+
+    public void LaunchTutoPart4()
+    {
+        TutorielPart4 tutoPart4 = gameObject.AddComponent<TutorielPart4>();       
     }
 
 }

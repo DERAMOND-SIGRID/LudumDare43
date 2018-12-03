@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class PlayerCombat : MonoBehaviour {
-    
-    private List<GameObject> ennemyList;
 
+    [SerializeField]
+    protected List<GameObject> ennemyCantAttack;
+
+    private List<GameObject> ennemyList;
+       
     abstract protected void LeftClickAction();
 
     abstract protected void RightClickAction();
@@ -14,14 +17,14 @@ public abstract class PlayerCombat : MonoBehaviour {
     // Use this for initialization
     void Start() {
 
-        ennemyList = new List<GameObject>();       
+        ennemyList = new List<GameObject>();
 
     }
        
     protected void CheckMouseInput () {
-        
+               
         if (Input.GetMouseButtonDown(0))
-        {            
+        {           
             LeftClickAction();
         }
         else if (Input.GetMouseButtonDown(1))

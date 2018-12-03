@@ -28,11 +28,12 @@ public class WarriorCombat :  PlayerCombat {
                 Transform papy = gameObject.GetComponent<Transform>().parent.GetComponent<Transform>();
 
                 float distance = Mathf.Abs(Vector3.Distance(theGoodOne.position, papy.position));
-                print(distance);
+                
                 //si distance <= distance d'attaque alors
-                if (distance <= gameObject.GetComponentInChildren<CharacterData>().GetAttackDistance())
+                if (distance <= gameObject.GetComponentInChildren<CharacterData>().GetAttackDistance()
+                   && !ennemyCantAttack.Contains(theGoodOne.gameObject))
                 {                    
-                    theGoodOne.GetComponent<EnnemyCombat>().TakeDamage(gameObject.GetComponentInChildren<CharacterData>().GetDamage());
+                    theGoodOne.GetComponent<EnnemyCombat>().Die();
                 }
 
 
