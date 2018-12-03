@@ -5,87 +5,95 @@ using UnityEngine;
 public class EnnemyCombat : MonoBehaviour {
 
     private Vector3 playerPosition;
-    private float attackTimer;
-    private int damage;
-
-    [SerializeField]
+    private float attackTimer;    
+    
     private List<GameObject> characterCantAttack;
 
     private bool canAttackCharacter;
 
+    [SerializeField]
     private bool canAttack;
     public void SetCanAttack(bool canHe) { canAttack = canHe; }
 
-    private GameObject character;
-    public void SetCharacter(GameObject current) { character = current; }
+    private GameObject character;    
 
     // Use this for initialization
     void Start () {
 
         attackTimer = 0;
 
-        damage = gameObject.GetComponent<CharacterData>().GetDamage();
-
+        characterCantAttack = gameObject.GetComponent<CharacterData>().GetEnnemyCharacterCantAttack();
+        
         canAttackCharacter = true;
+
+        character = GameObject.Find("Player").GetComponentInChildren<CharacterData>().gameObject;
 
     }
 	
 	// Update is called once per frame
 	void Update () {
-               
+        
         playerPosition = GameObject.Find("Player").GetComponent<Transform>().position;
 
         attackTimer = attackTimer + Time.deltaTime;
 
+        // if distance between player and ennemy <= attack distance
         if (Mathf.Abs(playerPosition.x - gameObject.GetComponent<Transform>().position.x) <= gameObject.GetComponent<CharacterData>().GetAttackDistance())
         {
 
-            foreach (GameObject go in characterCantAttack)
-            {                
-                if (go.name == character.name)
-                {
-                    canAttackCharacter = false;
+            if (character != null) {
+
+                character = GameObject.Find("Player").GetComponentInChildren<CharacterData>().gameObject;
+
+                foreach (GameObject go in characterCantAttack)
+                {                   
+                    if (go.name == character.name)
+                    {
+                        canAttackCharacter = false;
+                    }
                 }
+
+                if (canAttack == true && canAttackCharacter == true)
+                {
+                    character.GetComponent<CharacterData>().SetIsAlive(false);
+                    
+                    Destroy(character);
+                }
+
             }
 
-            if (attackTimer >= gameObject.GetComponent<CharacterData>().GetAttackFrequency()
-                && character != null && canAttack == true && canAttackCharacter == true)
-            {
-                attackTimer = 0;
-                //InflictDamage(damage);
-            }
         }
         
 	}
 
-    public void InflictDamage(int number)
-    {
-        GameObject.Find("Player").GetComponentInChildren<PlayerCombat>().TakeDamage(number);
-    }
-
-    public void TakeDamage(int number)
-    {
-        
-        int health = gameObject.GetComponent<CharacterData>().GetHealth();
-
-        health = health - number;
-
-        if (health < 0)
-        {
-            health = 0;
-            gameObject.GetComponent<CharacterData>().SetHealth(health);
-            Die();
-        }
-        else
-        {
-            gameObject.GetComponent<CharacterData>().SetHealth(health);
-        }
-        
-    }
-
     public void Die()
     {        
         Destroy(gameObject);
+    }
+
+    public void OnMouseDown()
+    {
+        // if player distance attaque is ok        
+        if (Mathf.Abs(playerPosition.x - gameObject.GetComponent<Transform>().position.x) <= GameObject.Find("Player").GetComponentInChildren<CharacterData>().GetAttackDistance())
+        {
+            bool canAttack = true;
+
+            // if player can attack ennemy
+            foreach (GameObject go in GameObject.Find("Player").GetComponentInChildren<CharacterData>().GetEnnemyCharacterCantAttack())
+            {
+                if (go.name == gameObject.name)
+                {
+                    canAttack = false;
+                }
+            }
+
+            if (canAttack == true)
+            {
+                Die();
+            }
+          
+        }
+
     }
 
 }

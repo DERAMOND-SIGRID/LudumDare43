@@ -3,22 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TutorielPart2 : MonoBehaviour {
+public class Room1DoorOpening : MonoBehaviour {
 
     private GameObject textInfo;
-
     private GameObject player;
 
     private GameObject arrow;
-    public void SetArrowSprite(GameObject sprite) { arrow = sprite; }
-
-    GameObject instanceArrow;
+    public void SetArrow(GameObject sprite) { arrow = sprite; }
+    private GameObject instanceArrow;
 
     private float timer;
 
     // Use this for initialization
     void Start () {
-               
+
         textInfo = GameObject.Find("TextPanelInfo");
         player = GameObject.Find("Player");
 
@@ -32,9 +30,9 @@ public class TutorielPart2 : MonoBehaviour {
         timer = 0;
 
     }
-
-    // Update is called once per frame
-    void Update () {
+	
+	// Update is called once per frame
+	void Update () {
 
         timer = timer + Time.deltaTime;
 
@@ -45,11 +43,11 @@ public class TutorielPart2 : MonoBehaviour {
             textInfo.GetComponent<Text>().text = "";
             Destroy(instanceArrow);
 
-            gameObject.GetComponent<Level1Manager>().LaunchTutoPart3();
+            gameObject.GetComponent<Level1Manager>().LaunchRoom2EnnemyInfo();
 
             Destroy(this);
         }
 
-	}
-       
+    }
+
 }

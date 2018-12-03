@@ -22,7 +22,13 @@ public class ChestInteraction : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        print("coffre clické");
+       
+        if (GameObject.Find("Player").GetComponentInChildren<CharacterData>().gameObject.name == "Picklock")
+        {
+            ////////////
+            print("take object in inventory");
+        }
+
     }
 
 }

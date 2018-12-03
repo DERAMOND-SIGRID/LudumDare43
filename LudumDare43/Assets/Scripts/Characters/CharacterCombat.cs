@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TutorielPart4 : MonoBehaviour {
+public class CharacterCombat : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -13,4 +13,10 @@ public class TutorielPart4 : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void Die()
+    {
+        /////////////////////
+    }
+
 }

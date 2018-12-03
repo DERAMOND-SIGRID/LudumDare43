@@ -15,58 +15,57 @@ public class Level1Manager : MonoBehaviour {
     [SerializeField]
     private GameObject arrow;
 
-    private TutorielPart3 tutoPart3;
-
-    [SerializeField]
-    private GameObject ennemy1;
-    private GameObject instanceEnnemyNum1;
-
     [SerializeField]
     private GameObject trigger;
 
     // Use this for initialization
     void Start () {
-
-        instanceEnnemyNum1 = Instantiate(ennemy1, new Vector3(20, 0, 0), Quaternion.identity, GameObject.Find("EnnemyList").GetComponent<Transform>());
-
+       
         GameObject player = GameObject.Find("Player");
         player.GetComponent<PlayerMoves>().enabled = false;
 
         GameObject warrior = GameObject.Find("Warrior");
-        warrior.GetComponent<WarriorCombat>().enabled = false;
-                
-        LaunchTutoPart1();
+
+        LaunchRoom1Moves();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (tutoPart3 != null)
-        {
-            tutoPart3.SetCanContinue(trigger.GetComponent<CheckLaunchingTutoPart3>().GetIsTrigger());
-        }
+       
 	}
 
-    private void LaunchTutoPart1()
+    private void LaunchRoom1Moves()
     {
-        TutorielPart1 tutoPart1 = gameObject.AddComponent<TutorielPart1>();
+        gameObject.AddComponent<Room1Moves>();
     }
 
-    public void LaunchTutoPart2()
+    public void LaunchRoom1DoorOpening()
     {
-        TutorielPart2 tutoPart2 = gameObject.AddComponent<TutorielPart2>();
-        tutoPart2.SetArrowSprite(arrow);
+        Room1DoorOpening r1do = gameObject.AddComponent<Room1DoorOpening>();
+        r1do.SetArrow(arrow);
     }
 
-    public void LaunchTutoPart3()
+    public void LaunchRoom2EnnemyInfo()
     {
-        tutoPart3 = gameObject.AddComponent<TutorielPart3>();
-        tutoPart3.SetArrowSprite(arrow);
-        tutoPart3.SetEnnemyNum1(instanceEnnemyNum1);
+        Room2EnnemyInfo r2ei = gameObject.AddComponent<Room2EnnemyInfo>();
+        r2ei.SetArrow(arrow);
     }
 
-    public void LaunchTutoPart4()
+    public void LaunchRoom2ChestInfo()
     {
-        TutorielPart4 tutoPart4 = gameObject.AddComponent<TutorielPart4>();       
+        Room2ChestInfo r2ci = gameObject.AddComponent<Room2ChestInfo>();
+        r2ci.SetArrow(arrow);       
+    }
+
+    public void LaunchRoom3EnnemyInfo()
+    {
+        Room3EnnemyInfo r3ei = gameObject.AddComponent<Room3EnnemyInfo>();
+        r3ei.SetArrow(arrow);
+    }
+
+    public void LaunchRoom3ChangeCharacter()
+    {
+        gameObject.AddComponent<Room3ChangeCharacter>();
     }
 
 }

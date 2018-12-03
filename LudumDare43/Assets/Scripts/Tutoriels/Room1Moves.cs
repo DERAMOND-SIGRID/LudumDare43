@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TutorielPart1 : MonoBehaviour {
+public class Room1Moves : MonoBehaviour {
 
     private GameObject textInfo;
+    private GameObject player;
 
     private string redColor = "#ff0000";
     private string greenColor = "#00ff00";
@@ -14,12 +15,10 @@ public class TutorielPart1 : MonoBehaviour {
     private string sColor;
     private string dColor;
 
-    private GameObject player;
-
     // Use this for initialization
     void Start () {
 
-       textInfo = GameObject.Find("TextPanelInfo");
+        textInfo = GameObject.Find("TextPanelInfo");
         player = GameObject.Find("Player");
 
         zColor = qColor = sColor = dColor = redColor;
@@ -28,7 +27,7 @@ public class TutorielPart1 : MonoBehaviour {
                                                     "<color=" + qColor + ">Q</color>" +
                                                     "<color=" + sColor + ">S</color>" +
                                                     "<color=" + dColor + ">D</color> to move up, left, down, right";
-                
+
         player.GetComponent<PlayerMoves>().enabled = true;
 
     }
@@ -55,10 +54,11 @@ public class TutorielPart1 : MonoBehaviour {
 
             textInfo.GetComponent<Text>().text = "";
 
-            gameObject.GetComponent<Level1Manager>().LaunchTutoPart2();
+            gameObject.GetComponent<Level1Manager>().LaunchRoom1DoorOpening();
 
             Destroy(this);
         }
 
     }
+
 }

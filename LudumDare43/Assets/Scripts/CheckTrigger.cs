@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckLaunchingTutoPart3 : MonoBehaviour {
+public class CheckTrigger : MonoBehaviour {
 
     private bool isTrigger;
     public bool GetIsTrigger() { return isTrigger; }
@@ -19,10 +19,14 @@ public class CheckLaunchingTutoPart3 : MonoBehaviour {
 
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {       
-        isTrigger = true;
+    {
+        if (isTrigger == false)
+        {
+            isTrigger = true;
 
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        }
+        
     }
     
 }
