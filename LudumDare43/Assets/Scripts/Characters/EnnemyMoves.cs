@@ -19,8 +19,6 @@ public class EnnemyMoves : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        character = GameObject.Find("Player").GetComponentInChildren<CharacterData>().gameObject;
-
         characterCantAttack = gameObject.GetComponent<CharacterData>().GetEnnemyCharacterCantAttack();
 
         moveSpeed = gameObject.GetComponent<CharacterData>().GetMoveSpeed();
@@ -30,10 +28,11 @@ public class EnnemyMoves : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (character != null)
+        if (GameObject.Find("Player").GetComponentInChildren<CharacterData>() != null)
         {
 
             character = GameObject.Find("Player").GetComponentInChildren<CharacterData>().gameObject;
+           
             playerPosition = GameObject.Find("Player").GetComponent<Transform>().position;
 
             float x;

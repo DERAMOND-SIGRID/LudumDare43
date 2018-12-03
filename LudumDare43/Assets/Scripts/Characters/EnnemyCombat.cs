@@ -25,9 +25,7 @@ public class EnnemyCombat : MonoBehaviour {
         characterCantAttack = gameObject.GetComponent<CharacterData>().GetEnnemyCharacterCantAttack();
         
         canAttackCharacter = true;
-
-        character = GameObject.Find("Player").GetComponentInChildren<CharacterData>().gameObject;
-
+       
     }
 	
 	// Update is called once per frame
@@ -40,13 +38,14 @@ public class EnnemyCombat : MonoBehaviour {
         // if distance between player and ennemy <= attack distance
         if (Mathf.Abs(playerPosition.x - gameObject.GetComponent<Transform>().position.x) <= gameObject.GetComponent<CharacterData>().GetAttackDistance())
         {
-
-            if (character != null) {
-
+            
+            if (GameObject.Find("Player").GetComponentInChildren<CharacterData>() != null) {
+                
                 character = GameObject.Find("Player").GetComponentInChildren<CharacterData>().gameObject;
-
+                print("character: " + character.name);
                 foreach (GameObject go in characterCantAttack)
-                {                   
+                {
+                    print("character cant attack :" + go.name);
                     if (go.name == character.name)
                     {
                         canAttackCharacter = false;
@@ -55,6 +54,7 @@ public class EnnemyCombat : MonoBehaviour {
 
                 if (canAttack == true && canAttackCharacter == true)
                 {
+                    print("oui2");
                     character.GetComponent<CharacterData>().SetIsAlive(false);
                     
                     Destroy(character);

@@ -81,8 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881f17b21fa54c547b8df9d505e774ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 8
-  moveSpeed: 0.2
+  moveSpeed: 3
   attackDistance: 3
   ennemyCharacterCantAttack:
   - {fileID: 1185203633322122, guid: 962a39b5522f8dc478641979fcf64974, type: 2}

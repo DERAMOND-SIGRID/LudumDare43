@@ -39,10 +39,10 @@ public class Room3ChangeCharacter : MonoBehaviour {
             textInfo.GetComponent<Text>().text = "You are dead!";
 
             alreadyExecute1 = true;
-            timer = 0;
+           
         }
 
-        if (alreadyExecute1 = true && timer >=4)
+        if (alreadyExecute1 == true && timer >=4)
         {
             textInfo.GetComponent<Text>().text = "You must now choose a new character :";
 

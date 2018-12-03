@@ -81,8 +81,7 @@ public class Room3EnnemyInfo : MonoBehaviour {
 
             GameObject ennemy = GameObject.Find("EnnemyListRoom3").GetComponentInChildren<EnnemyMoves>().gameObject;
 
-            ennemy.GetComponent<EnnemyMoves>().SetCanHunt(true);            
-
+            ennemy.GetComponent<EnnemyMoves>().SetCanHunt(true);
             ennemy.GetComponent<EnnemyCombat>().SetCanAttack(true);
 
             gameObject.GetComponent<Level1Manager>().LaunchRoom3ChangeCharacter();

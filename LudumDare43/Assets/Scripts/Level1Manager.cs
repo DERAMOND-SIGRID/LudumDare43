@@ -68,6 +68,9 @@ public class Level1Manager : MonoBehaviour {
         gameObject.AddComponent<Room3ChangeCharacter>();
     }
 
-    public void LaunchRoom4EnnemyInfo() { }
+    public void LaunchRoom4EnnemyInfo()
+    {
+        gameObject.AddComponent<Room4EnnemyInfo>();
+    }
 
 }

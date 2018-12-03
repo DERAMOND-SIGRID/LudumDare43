@@ -6,7 +6,8 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField]
     private GameObject menuSelection;
-    private GameObject instancemenuSelection;    
+    private GameObject instancemenuSelection;   
+    public bool IsMenuSelectionNull() { return instancemenuSelection == null; }
 
     [SerializeField]
     private GameObject level1;
